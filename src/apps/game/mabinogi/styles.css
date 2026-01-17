@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Mabinogi App Styles
+   ========================================================================== */
+
+.mabinogi-app {
+    --mabi-accent: #c9a227;
+    --mabi-accent-light: #f4d35e;
+}
+
+.app-header {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-lg);
+    transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+    color: var(--color-text-primary);
+}
+
+.app-title-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.app-icon {
+    font-size: 2.5rem;
+}
+
+/* Tools Section */
+.tools-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.tools-section h3 {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Tool Card */
+.tool-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    cursor: pointer;
+}
+
+.tool-card.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.tool-card.disabled:hover {
+    transform: none;
+    background: var(--color-bg-card);
+    border-color: var(--color-border);
+}
+
+.tool-icon {
+    flex-shrink: 0;
+    font-size: 1.75rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(201, 162, 39, 0.05));
+    border-radius: var(--radius-md);
+}
+
+.tool-content {
+    flex: 1;
+}
+
+.tool-content h4 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tool-content p {
+    font-size: var(--font-size-sm);
+}
+
+/* Badge */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+}
+
+/* Coming Soon Notice */
+.coming-soon-notice {
+    margin-top: var(--spacing-xl);
+}
+
+.text-center {
+    text-align: center;
+}
