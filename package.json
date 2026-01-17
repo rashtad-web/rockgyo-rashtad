@@ -1,0 +1,8 @@
+{
+  "name": "rockgyo-rashtad",
+  "version": "0.1",
+  "main": "index.js",
+  "repository": "https://github.com/rashtad-web/rockgyo-rashtad.git",
+  "author": "RASHTAD\\redze <redzesty@gmail.com>",
+  "license": "MIT"
+}
