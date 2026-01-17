@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import KakaoHome from './pages/KakaoHome'
-import './styles.css'
+import './pages/KakaoHome.css'
 
 /**
  * 카카오톡 분석 앱 모듈
@@ -14,8 +14,7 @@ export default function KakaoApp() {
             <Routes>
                 <Route index element={<KakaoHome />} />
                 {/* 추가 페이지들을 여기에 설정 */}
-                {/* <Route path="analyze" element={<AnalyzePage />} /> */}
-                {/* <Route path="stats" element={<StatsPage />} /> */}
+                {/* <Route path="history" element={<HistoryPage />} /> */}
             </Routes>
         </div>
     )
