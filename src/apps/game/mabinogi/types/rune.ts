@@ -19,19 +19,30 @@ export type StatType =
     | 'extraHitRate'       // 추가타 확률
     | 'heavyHitDamage'     // 강타 피해
     | 'comboHitDamage'     // 연타 피해
+    | 'comboDamage'        // 콤보 피해
     | 'attackPower'        // 공격력
-    | 'damageDealt'        // 적에게 주는 피해
+    | 'damageDealt'        // 주는 피해
+    | 'damageDealtToEnemy' // 적에게 주는 피해
     | 'damageReceived'     // 받는 피해
+    | 'enemyDamageReceived' // (적이)받는 피해
+    | 'selfDamageReceived' // (내가)받는 피해
     | 'multiHitDamage'     // 멀티히트 피해
     | 'skillDamage'        // 스킬 피해
+    | 'chargeSkillDamage'  // 차지 스킬 피해
     | 'ultimateDamage'     // 궁극기 피해
+    | 'cooldown'           // 쿨타임
     | 'cooldownReduction'  // 쿨타임 감소
+    | 'cooldownSpeed'      // 쿨타임 속도
     | 'cooldownRecovery'   // 쿨타임 회복 속도
     | 'castingSpeed'       // 캐스팅 속도
+    | 'castingChargeSpeed' // 캐스팅/차지 속도
     | 'chargeSpeed'        // 차지 속도
     | 'skillSpeed'         // 스킬 사용 속도
     | 'healAmount'         // 치유량
+    | 'recovery'           // 회복력
     | 'breakDamage'        // 무방비 피해
+    | 'breakSkillDamage'   // 브레이크 스킬 피해
+    | 'breakHitDamage'     // 브레이크 피해
     | 'dotDamage'          // 지속 피해
     | 'finalDamage'        // 최종 피해
     | 'defense'            // 방어력
@@ -113,19 +124,30 @@ export const STAT_LABELS: Record<StatType, string> = {
     extraHitRate: '추가타 확률',
     heavyHitDamage: '강타 피해',
     comboHitDamage: '연타 피해',
+    comboDamage: '콤보 피해',
     attackPower: '공격력',
-    damageDealt: '적에게 주는 피해',
+    damageDealt: '주는 피해',
+    damageDealtToEnemy: '적에게 주는 피해',
     damageReceived: '받는 피해',
+    enemyDamageReceived: '(적이)받는 피해',
+    selfDamageReceived: '(내가)받는 피해',
     multiHitDamage: '멀티히트 피해',
     skillDamage: '스킬 피해',
+    chargeSkillDamage: '차지 스킬 피해',
     ultimateDamage: '궁극기 피해',
+    cooldown: '쿨타임',
     cooldownReduction: '쿨타임 감소',
+    cooldownSpeed: '쿨타임 속도',
     cooldownRecovery: '쿨타임 회복 속도',
     castingSpeed: '캐스팅 속도',
+    castingChargeSpeed: '캐스팅/차지 속도',
     chargeSpeed: '차지 속도',
     skillSpeed: '스킬 사용 속도',
     healAmount: '치유량',
+    recovery: '회복력',
     breakDamage: '무방비 피해',
+    breakSkillDamage: '브레이크 스킬 피해',
+    breakHitDamage: '브레이크 피해',
     dotDamage: '지속 피해',
     finalDamage: '최종 피해',
     defense: '방어력',

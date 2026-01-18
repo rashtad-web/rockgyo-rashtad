@@ -1,5 +1,5 @@
 import type { RuneSlot, RuneIndex, StatType } from '../types/rune';
-import { SLOT_LABELS, INDEX_LABELS, STAT_LABELS } from '../types/rune';
+import { SLOT_LABELS, STAT_LABELS } from '../types/rune';
 import './RuneFilters.css';
 
 interface RuneFiltersProps {
@@ -69,11 +69,8 @@ export default function RuneFilters({
                         className="filter-select"
                     >
                         <option value="">전체 등급</option>
-                        {Object.entries(INDEX_LABELS).map(([key, label]) => (
-                            <option key={key} value={key}>
-                                {label}
-                            </option>
-                        ))}
+                        <option value="season1_legendary">시즌1 전설</option>
+                        <option value="season1_mythic">시즌1 신화</option>
                     </select>
                 </div>
 

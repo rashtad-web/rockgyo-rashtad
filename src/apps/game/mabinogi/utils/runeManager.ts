@@ -82,24 +82,36 @@ export function parseStatTypeFromKorean(value: string): StatType {
         '추가타 확률': 'extraHitRate',
         '강타 피해': 'heavyHitDamage',
         '연타 피해': 'comboHitDamage',
+        '콤보 피해': 'comboDamage',
         '공격력': 'attackPower',
-        '적에게 주는 피해': 'damageDealt',
-        '(적)받는 피해': 'damageReceived',
+        '주는 피해': 'damageDealt',
+        '적에게 주는 피해': 'damageDealtToEnemy',
         '받는 피해': 'damageReceived',
+        '(적)받는 피해': 'damageReceived',
+        '(적이)받는 피해': 'enemyDamageReceived',
+        '(내가)받는 피해': 'selfDamageReceived',
         '멀티히트 피해': 'multiHitDamage',
         '스킬 피해': 'skillDamage',
+        '차지 스킬 피해': 'chargeSkillDamage',
         '궁극기 피해': 'ultimateDamage',
+        '쿨타임': 'cooldown',
         '쿨타임 감소': 'cooldownReduction',
+        '쿨타임 속도': 'cooldownSpeed',
         '쿨타임 회복 속도': 'cooldownRecovery',
         '캐스팅 속도': 'castingSpeed',
+        '캐스팅/차지 속도': 'castingChargeSpeed',
         '차지 속도': 'chargeSpeed',
         '스킬 사용 속도': 'skillSpeed',
         '치유량': 'healAmount',
+        '회복력': 'recovery',
         '무방비 피해': 'breakDamage',
+        '브레이크 스킬 피해': 'breakSkillDamage',
+        '브레이크 피해': 'breakHitDamage',
         '지속 피해': 'dotDamage',
         '최종 피해': 'finalDamage',
         '방어력': 'defense',
         '체력': 'hp',
+        '스킬 변화': 'skillChange',
     };
     return map[value] || 'other';
 }
@@ -141,11 +153,11 @@ function isValidIndex(value: string): value is RuneIndex {
 
 function isValidStatType(value: string): value is StatType {
     return [
-        'critRate', 'critDamage', 'extraHitRate', 'heavyHitDamage', 'comboHitDamage',
-        'attackPower', 'damageDealt', 'damageReceived', 'multiHitDamage', 'skillDamage',
-        'ultimateDamage', 'cooldownReduction', 'cooldownRecovery', 'castingSpeed',
-        'chargeSpeed', 'skillSpeed', 'healAmount', 'breakDamage', 'dotDamage',
-        'finalDamage', 'defense', 'hp', 'skillChange', 'other'
+        'critRate', 'critDamage', 'extraHitRate', 'heavyHitDamage', 'comboHitDamage', 'comboDamage',
+        'attackPower', 'damageDealt', 'damageDealtToEnemy', 'damageReceived', 'enemyDamageReceived', 'selfDamageReceived',
+        'multiHitDamage', 'skillDamage', 'chargeSkillDamage', 'ultimateDamage', 'cooldown', 'cooldownReduction', 'cooldownSpeed',
+        'cooldownRecovery', 'castingSpeed', 'castingChargeSpeed', 'chargeSpeed', 'skillSpeed', 'healAmount', 'recovery',
+        'breakDamage', 'breakSkillDamage', 'breakHitDamage', 'dotDamage', 'finalDamage', 'defense', 'hp', 'skillChange', 'other'
     ].includes(value);
 }
 
