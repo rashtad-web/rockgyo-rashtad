@@ -1,0 +1,324 @@
+/* ==========================================================================
+   Rune Card Styles
+   ========================================================================== */
+
+.rune-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.rune-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.rune-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-lg);
+}
+
+.rune-card:hover::before {
+    opacity: 1;
+}
+
+/* Slot Colors */
+.rune-card.weapon::before {
+    background: linear-gradient(90deg, #ff6b6b, #ee5a5a);
+}
+
+.rune-card.armor::before {
+    background: linear-gradient(90deg, #4ecdc4, #3dbdb5);
+}
+
+.rune-card.emblem::before {
+    background: linear-gradient(90deg, #f7b731, #f0a020);
+}
+
+.rune-card.accessory::before {
+    background: linear-gradient(90deg, #a55eea, #8854d0);
+}
+
+/* Index Colors (Legendary vs Mythic) */
+.rune-card.legendary {
+    border-color: rgba(255, 107, 107, 0.3);
+    background: linear-gradient(135deg, var(--color-bg-card), rgba(255, 107, 107, 0.05));
+}
+
+.rune-card.mythic {
+    border-color: rgba(247, 183, 49, 0.4);
+    background: linear-gradient(135deg, var(--color-bg-card), rgba(247, 183, 49, 0.08));
+}
+
+/* Header */
+.rune-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.rune-slot {
+    font-size: var(--font-size-xs);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+}
+
+.rune-slot.weapon {
+    background: rgba(255, 107, 107, 0.15);
+    color: #ff6b6b;
+}
+
+.rune-slot.armor {
+    background: rgba(78, 205, 196, 0.15);
+    color: #4ecdc4;
+}
+
+.rune-slot.emblem {
+    background: rgba(247, 183, 49, 0.15);
+    color: #f7b731;
+}
+
+.rune-slot.accessory {
+    background: rgba(165, 94, 234, 0.15);
+    color: #a55eea;
+}
+
+.rune-index {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.rune-index.legendary {
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+.rune-index.mythic {
+    color: #f7b731;
+    font-weight: 600;
+}
+
+/* Name */
+.rune-name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+/* Stat */
+.rune-stat {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.stat-type {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.stat-modifier {
+    font-size: var(--font-size-xs);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+}
+
+.stat-modifier.increase {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+}
+
+.stat-modifier.decrease {
+    background: rgba(244, 67, 54, 0.15);
+    color: #f44336;
+}
+
+/* Stats Container - 모든 스탯 표시 */
+.rune-stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.rune-stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
+}
+
+.rune-stat-item .stat-type {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.rune-stat-item .stat-value {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.rune-stat-item .stat-value.increase {
+    color: #4caf50;
+}
+
+.rune-stat-item .stat-value.decrease {
+    color: #f44336;
+}
+
+/* Values */
+.rune-values {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.value-item {
+    flex: 1;
+    text-align: center;
+    padding: var(--spacing-sm);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
+}
+
+.value-label {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-bottom: 2px;
+}
+
+.value-number {
+    display: block;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-accent-primary);
+}
+
+/* Description (List View) */
+.rune-description {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+/* List View Adjustments */
+.rune-card.list {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.rune-card.list .rune-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+    margin-bottom: 0;
+}
+
+.rune-card.list .rune-name {
+    margin-bottom: 0;
+}
+
+.rune-card.list .rune-stat {
+    margin-bottom: 0;
+}
+
+.rune-card.list .rune-description {
+    grid-column: 1 / -1;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+    .rune-card.list {
+        display: block;
+    }
+}
+
+/* Multi-stat badge */
+.stat-count-badge {
+    display: inline-block;
+    margin-left: var(--spacing-sm);
+    padding: 2px 8px;
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    background: linear-gradient(135deg, rgba(165, 94, 234, 0.2), rgba(165, 94, 234, 0.1));
+    border: 1px solid rgba(165, 94, 234, 0.3);
+    border-radius: var(--radius-full);
+    color: #a55eea;
+}
+
+/* Additional stats preview (Grid View) */
+.additional-stats-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.additional-stat {
+    font-size: var(--font-size-xs);
+    padding: 2px 8px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+}
+
+/* All stats list (List View) */
+.all-stats-list {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+}
+
+.stat-row .stat-type {
+    flex: 1;
+}
+
+.stat-row .stat-values {
+    font-size: var(--font-size-sm);
+    color: var(--color-accent-primary);
+    font-weight: 500;
+}
+
+/* 장신구 스킬 설명 */
+.rune-skill-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    padding: var(--spacing-sm);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
+    border-left: 2px solid #a55eea;
+}

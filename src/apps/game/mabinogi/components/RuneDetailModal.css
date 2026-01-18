@@ -1,0 +1,340 @@
+/* ==========================================================================
+   Rune Detail Popup Styles (Compact)
+   ========================================================================== */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--spacing-md);
+}
+
+.popup-content {
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 360px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-xl);
+    animation: popupSlide 0.2s ease-out;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 등급별 팝업 테두리 (전설=빨강, 신화=노랑) */
+.popup-content.legendary {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 25px rgba(255, 107, 107, 0.25), var(--shadow-xl);
+}
+
+.popup-content.mythic {
+    border-color: #f7b731;
+    box-shadow: 0 0 25px rgba(247, 183, 49, 0.3), var(--shadow-xl);
+}
+
+/* 초월 효과 - 내부 오버레이 */
+.trans-effect {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+.trans-effect.trans-1 {
+    background: linear-gradient(180deg,
+            rgba(76, 175, 80, 0.08) 0%,
+            rgba(76, 175, 80, 0.02) 50%,
+            transparent 100%);
+    border-top: 3px solid rgba(76, 175, 80, 0.5);
+}
+
+.trans-effect.trans-2 {
+    background: linear-gradient(180deg,
+            rgba(247, 183, 49, 0.12) 0%,
+            rgba(76, 175, 80, 0.05) 50%,
+            transparent 100%);
+    border-top: 3px solid #f7b731;
+    animation: glowPulseInner 2s ease-in-out infinite;
+}
+
+@keyframes glowPulseInner {
+
+    0%,
+    100% {
+        box-shadow: inset 0 0 30px rgba(247, 183, 49, 0.1);
+    }
+
+    50% {
+        box-shadow: inset 0 0 50px rgba(247, 183, 49, 0.2);
+    }
+}
+
+@keyframes popupSlide {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Header */
+.popup-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    z-index: 1;
+}
+
+.popup-title-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.popup-slot {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    width: fit-content;
+}
+
+.popup-slot.weapon {
+    background: rgba(255, 107, 107, 0.15);
+    color: #ff6b6b;
+}
+
+.popup-slot.armor {
+    background: rgba(78, 205, 196, 0.15);
+    color: #4ecdc4;
+}
+
+.popup-slot.emblem {
+    background: rgba(247, 183, 49, 0.15);
+    color: #f7b731;
+}
+
+.popup-slot.accessory {
+    background: rgba(165, 94, 234, 0.15);
+    color: #a55eea;
+}
+
+.popup-name {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.popup-index {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.popup-index.legendary {
+    color: #ff6b6b;
+}
+
+.popup-index.mythic {
+    color: #f7b731;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    line-height: 1;
+    transition: color var(--transition-fast);
+}
+
+.popup-close:hover {
+    color: var(--color-text-primary);
+}
+
+/* Transcendence Toggle */
+.popup-trans-toggle {
+    display: flex;
+    gap: 2px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    position: relative;
+    z-index: 1;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.toggle-btn:hover {
+    color: var(--color-text-secondary);
+    background: var(--color-bg-card);
+}
+
+/* 0단계 - 기본 */
+.toggle-btn.trans-level-0.active {
+    background: var(--color-bg-card);
+    color: var(--color-text-primary);
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 1단계 - 초록색 */
+.toggle-btn.trans-level-1.active {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+    color: #4caf50;
+    border-color: #4caf50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+/* 2단계 - 초록색 + 노란색 */
+.toggle-btn.trans-level-2.active {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(247, 183, 49, 0.2));
+    color: #f7b731;
+    border-color: #f7b731;
+    box-shadow:
+        0 0 10px rgba(76, 175, 80, 0.2),
+        0 0 20px rgba(247, 183, 49, 0.3);
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px rgba(76, 175, 80, 0.2),
+            0 0 20px rgba(247, 183, 49, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px rgba(76, 175, 80, 0.3),
+            0 0 30px rgba(247, 183, 49, 0.4);
+    }
+}
+
+/* Stats */
+.popup-stats {
+    padding: var(--spacing-sm) var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+.popup-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.popup-stat:last-child {
+    border-bottom: none;
+}
+
+.popup-stat-name {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.popup-category {
+    font-size: 10px;
+    padding: 1px 6px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+}
+
+.popup-stat-value {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.popup-stat-value.increase {
+    color: #4caf50;
+}
+
+.popup-stat-value.decrease {
+    color: #f44336;
+}
+
+/* 초월 단계별 수치 색상 */
+.popup-stat-value.trans-1.increase {
+    color: #66bb6a;
+    text-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+.popup-stat-value.trans-2.increase {
+    color: #f7b731;
+    text-shadow:
+        0 0 8px rgba(76, 175, 80, 0.3),
+        0 0 15px rgba(247, 183, 49, 0.5);
+}
+
+/* Description */
+.popup-description {
+    padding: var(--spacing-md);
+    margin: 0 var(--spacing-md) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+}
+
+/* 장신구 초월 보너스 */
+.popup-accessory-bonus {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    margin: 0 var(--spacing-md) var(--spacing-sm);
+    background: linear-gradient(135deg, rgba(165, 94, 234, 0.1), rgba(165, 94, 234, 0.05));
+    border: 1px solid rgba(165, 94, 234, 0.3);
+    border-radius: var(--radius-md);
+}
+
+.popup-accessory-bonus .bonus-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.popup-accessory-bonus .bonus-value {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: #a55eea;
+}

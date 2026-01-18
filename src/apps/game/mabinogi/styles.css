@@ -7,6 +7,50 @@
     --mabi-accent-light: #f4d35e;
 }
 
+/* Internal Navigation */
+.mabi-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--color-bg-card);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--spacing-lg);
+}
+
+.nav-back {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    transition: color var(--transition-fast);
+}
+
+.nav-back:hover {
+    color: var(--color-text-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.nav-links a {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.nav-links a:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.nav-links a.active {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.2), rgba(201, 162, 39, 0.1));
+    color: var(--mabi-accent-light);
+}
+
 .app-header {
     margin-bottom: var(--spacing-2xl);
 }
@@ -50,6 +94,8 @@
     align-items: flex-start;
     gap: var(--spacing-md);
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .tool-card.disabled {
@@ -61,6 +107,15 @@
     transform: none;
     background: var(--color-bg-card);
     border-color: var(--color-border);
+}
+
+.tool-card.active-tool {
+    border-color: var(--mabi-accent);
+}
+
+.tool-card.active-tool:hover {
+    border-color: var(--mabi-accent-light);
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.2);
 }
 
 .tool-icon {

@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "update-runes": "node scripts/update-runes.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",
